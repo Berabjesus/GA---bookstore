@@ -1,2 +1,4 @@
-package com.example.jasp.service.interfaces;public interface IPublisherService {
+package com.example.jasp.service.interfaces;
+
+public interface IPublisherService {
 }
