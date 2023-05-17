@@ -27,10 +27,50 @@ public class Publisher {
     @Size(max = 50, message = "name must be less than 50 characters long")
     private String name;
 
-    @NotEmpty(message = "location may not be empty")
     @Size(max = 50, message = "location must be less than 50 characters long")
     private String location;
 
     @OneToMany(mappedBy = "publisher", cascade = CascadeType.PERSIST)
     private List<Book> books;
+
+    public Publisher() {
+    }
+
+    public Publisher(String name) {
+        this.name = name;
+    }
+
+    public Publisher(String name, String location, List<Book> books) {
+        this.name = name;
+        this.location = location;
+        this.books = books;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 }

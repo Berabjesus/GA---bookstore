@@ -1,8 +1,13 @@
 package com.example.jasp.service;
 
+import com.example.jasp.model.Book;
+import com.example.jasp.repository.BookRepository;
+import com.example.jasp.service.interfaces.IBookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 /**
@@ -13,5 +18,19 @@ import javax.transaction.Transactional;
  */
 @Service
 @Transactional
-public class BookService {
+public class BookService implements IBookService {
+
+    @Autowired
+    BookRepository bookRepository;
+
+    public List<Book> getAllBooks() {
+       return bookRepository.findAll();
+    }
+
+    public Book getBookById(Long id) {
+        return bookRepository.findById(id).orElse(null);
+    }
+    public Book addBook(Book book) {
+        return bookRepository.save(book);
+    }
 }

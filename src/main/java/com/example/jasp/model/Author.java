@@ -33,4 +33,54 @@ public class Author {
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.PERSIST)
     private List<Book> books;
+
+    public Author() {
+    }
+
+    public Author(String name) {
+        this.name = name;
+    }
+
+    public Author(String name, String nationality, Integer age, List<Book> books) {
+        this.name = name;
+        this.nationality = nationality;
+        this.age = age;
+        this.books = books;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 }

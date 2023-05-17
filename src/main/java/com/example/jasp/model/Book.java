@@ -15,6 +15,7 @@ import javax.validation.constraints.Size;
  * 3. Genvalue
  * 4. @size
  * 5.JoinColumn
+ * 6. Required args constructors
  */
 @Entity
 @Table(name = "book")
@@ -43,4 +44,66 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "genre_id")
     private Genre genre;
+
+    public Book(String title, String description, Author author, Publisher publisher, Genre genre) {
+        this.title = title;
+        this.description = description;
+        this.author = author;
+        this.publisher = publisher;
+        this.genre = genre;
+    }
+
+    public Book(String title, Author author, Publisher publisher, Genre genre) {
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.genre = genre;
+    }
+
+    public Book() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
 }

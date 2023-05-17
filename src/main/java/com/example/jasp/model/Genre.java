@@ -29,4 +29,36 @@ public class Genre {
 
     @OneToMany(mappedBy = "genre")
     private List<Book> books;
+
+    public Genre() {
+    }
+
+    public Genre(String name, List<Book> books) {
+        this.name = name;
+        this.books = books;
+    }
+
+    public Genre(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
 }
