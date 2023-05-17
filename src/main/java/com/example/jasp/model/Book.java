@@ -3,6 +3,7 @@ package com.example.jasp.model;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -23,8 +24,8 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @NotNull
-    @Size(max = 50)
+    @NotEmpty(message = "title may not be empty")
+    @Size(max = 50, message = "title must be less than 50 characters long")
     private String title;
     private String description;
 

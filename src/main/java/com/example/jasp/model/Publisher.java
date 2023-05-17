@@ -3,6 +3,7 @@ package com.example.jasp.model;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -22,11 +23,12 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @NotNull
-    @Size(max = 50)
+    @NotEmpty(message = "name may not be empty")
+    @Size(max = 50, message = "name must be less than 50 characters long")
     private String name;
 
-    @Size(max = 50)
+    @NotEmpty(message = "location may not be empty")
+    @Size(max = 50, message = "location must be less than 50 characters long")
     private String location;
 
     @OneToMany(mappedBy = "publisher", cascade = CascadeType.PERSIST)
