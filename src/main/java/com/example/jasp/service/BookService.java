@@ -27,6 +27,11 @@ public class BookService implements IBookService {
        return bookRepository.findAll();
     }
 
+    @Override
+    public List<Book> getAllBooksByAuthorID(Long id) {
+        return null;
+    }
+
     public Book getBookById(Long id) {
         return bookRepository.findById(id).orElse(null);
     }

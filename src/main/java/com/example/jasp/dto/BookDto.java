@@ -5,6 +5,11 @@ import com.example.jasp.model.Genre;
 import com.example.jasp.model.Publisher;
 import lombok.*;
 
+/**
+ * //TODO :- comments
+ * 1. why dto
+ * 2. lombok
+ */
 @Data
 @AllArgsConstructor
 @RequiredArgsConstructor
